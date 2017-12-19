@@ -14,6 +14,8 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 
 let BASE_URL = "https://ios11-chat-app.herokuapp.com/v1/"
 let URL_REGISTER = BASE_URL + "account/register"
+let URL_LOGIN = BASE_URL + "account/login"
+let URL_USER_ADD = BASE_URL + "user/add"
 
 // Segues
 
@@ -25,3 +27,8 @@ let UNWIND = "unwindToChannel"
 let LOGGED_IN_KEY = "loggedIn"
 let TOKEN_KEY = "token"
 let USER_EMAIL = "userEmail"
+
+// Headers
+let HEADER = [
+    "Content-Type": "Application/json; charset=utf-8"
+]
