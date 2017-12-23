@@ -66,7 +66,7 @@
                                 <rect key="frame" x="265" y="93" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="a2n-Le-7ZJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="a2n-Le-7ZJ" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Ucf-aV-Bcq"/>
@@ -131,6 +131,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="6GD-3G-bSv" id="Jch-nM-EHP"/>
+                        <outlet property="userImg" destination="a2n-Le-7ZJ" id="C5b-f5-W19"/>
                         <segue destination="LWn-qg-IVF" kind="show" identifier="toLogin" id="p6k-5F-Z24"/>
                     </connections>
                 </viewController>
@@ -385,7 +386,7 @@
                                     <action selector="pickAvatarPressed:" destination="5Lg-b1-RyG" eventType="touchUpInside" id="pjE-MR-8Ii"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="LLt-fR-QeV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="LLt-fR-QeV" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="137" y="311.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="XTa-mD-yvt"/>
@@ -405,6 +406,10 @@
                                     <action selector="pickBgColorPressed:" destination="5Lg-b1-RyG" eventType="touchUpInside" id="yKt-lo-56f"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vow-Qo-Mgr">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -413,6 +418,7 @@
                             <constraint firstItem="ja4-Kt-MbA" firstAttribute="top" secondItem="LLt-fR-QeV" secondAttribute="top" id="9ZT-vK-ntS"/>
                             <constraint firstItem="ja4-Kt-MbA" firstAttribute="centerX" secondItem="OVc-S7-N3b" secondAttribute="centerX" id="9hZ-1b-9kg"/>
                             <constraint firstItem="ckE-c7-cnc" firstAttribute="top" secondItem="A3Q-uM-1qO" secondAttribute="bottom" constant="8" id="FZZ-nQ-7Z5"/>
+                            <constraint firstItem="vow-Qo-Mgr" firstAttribute="centerY" secondItem="OVc-S7-N3b" secondAttribute="centerY" constant="-100" id="Mze-gK-9wb"/>
                             <constraint firstItem="VUM-OB-pEB" firstAttribute="top" secondItem="Ly1-yD-bmI" secondAttribute="bottom" constant="20" id="NPM-K3-ut3"/>
                             <constraint firstItem="Ly1-yD-bmI" firstAttribute="centerX" secondItem="OVc-S7-N3b" secondAttribute="centerX" id="T1o-7S-T3r"/>
                             <constraint firstItem="ja4-Kt-MbA" firstAttribute="width" secondItem="LLt-fR-QeV" secondAttribute="width" id="UTE-dq-Oko"/>
@@ -422,12 +428,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ckE-c7-cnc" secondAttribute="trailing" id="n0D-lm-TF5"/>
                             <constraint firstItem="VJF-pp-fgs" firstAttribute="centerX" secondItem="OVc-S7-N3b" secondAttribute="centerX" id="oLL-s8-zu4"/>
                             <constraint firstItem="IsV-n2-Zud" firstAttribute="top" secondItem="ja4-Kt-MbA" secondAttribute="bottom" constant="4" id="rGd-re-nY3"/>
+                            <constraint firstItem="vow-Qo-Mgr" firstAttribute="centerX" secondItem="OVc-S7-N3b" secondAttribute="centerX" id="uLU-t7-AbR"/>
                             <constraint firstItem="MsG-w5-CSZ" firstAttribute="centerX" secondItem="OVc-S7-N3b" secondAttribute="centerX" id="yHR-2X-sMS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTxt" destination="nGy-FR-gI2" id="ovf-Ce-744"/>
                         <outlet property="passTxt" destination="KK9-nP-dmG" id="Nmu-tG-96i"/>
+                        <outlet property="spinner" destination="vow-Qo-Mgr" id="qh0-e5-ghK"/>
                         <outlet property="userImg" destination="LLt-fR-QeV" id="jt3-Uo-E0J"/>
                         <outlet property="usernameTxt" destination="fk8-p4-eNd" id="NrP-Ua-foU"/>
                         <segue destination="Ln8-0p-ydM" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="RPc-aP-bdJ"/>
@@ -493,7 +501,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m0Y-PQ-2bl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m0Y-PQ-2bl" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                                     <rect key="frame" x="18" y="18" width="64" height="64"/>
                                                 </imageView>
                                             </subviews>
