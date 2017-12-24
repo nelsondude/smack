@@ -24,6 +24,11 @@ class ChannelVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupUserInfo()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,7 +36,6 @@ class ChannelVC: UIViewController {
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
-        print(AuthService.instance.isLoggedIn)
         if (AuthService.instance.isLoggedIn) {
             // Show Profile Page
             let profile = ProfileVC()
@@ -44,9 +48,14 @@ class ChannelVC: UIViewController {
         
     }
     @objc func userDataDidChange(_ notif: Notification) {
+        setupUserInfo()
+    }
+    
+    func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
+            
             userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
         } else {
             loginBtn.setTitle("Login", for: .normal)

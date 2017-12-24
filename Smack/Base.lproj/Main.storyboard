@@ -199,7 +199,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="3gP-9d-blZ">
                                 <rect key="frame" x="62.5" y="160" width="250" height="94"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dd-2X-RZh">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dd-2X-RZh" userLabel="Username Txt">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="UxG-7l-ORU"/>
@@ -247,6 +247,10 @@
                                     <action selector="createAccountBtnPressed:" destination="LWn-qg-IVF" eventType="touchUpInside" id="8Ib-Ik-XRK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-MN-gJF">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -254,7 +258,9 @@
                             <constraint firstItem="YxH-vH-kXU" firstAttribute="top" secondItem="GdU-2j-DG9" secondAttribute="bottom" constant="8" id="IlA-71-3UC"/>
                             <constraint firstItem="j73-bd-Jey" firstAttribute="centerX" secondItem="Fre-v5-S0s" secondAttribute="centerX" id="LOQ-9L-FFm"/>
                             <constraint firstItem="3gP-9d-blZ" firstAttribute="centerX" secondItem="Fre-v5-S0s" secondAttribute="centerX" id="R23-RB-jRe"/>
+                            <constraint firstItem="KK6-MN-gJF" firstAttribute="centerX" secondItem="Fre-v5-S0s" secondAttribute="centerX" id="UgR-Nh-ge7"/>
                             <constraint firstItem="A90-ow-VyK" firstAttribute="top" secondItem="j73-bd-Jey" secondAttribute="bottom" id="W54-OI-CvP"/>
+                            <constraint firstItem="KK6-MN-gJF" firstAttribute="centerY" secondItem="Fre-v5-S0s" secondAttribute="centerY" constant="-100" id="YEh-c5-rnG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YxH-vH-kXU" secondAttribute="trailing" id="bWt-jc-O4w"/>
                             <constraint firstItem="A90-ow-VyK" firstAttribute="centerX" secondItem="Fre-v5-S0s" secondAttribute="centerX" id="cLY-48-Kq0"/>
                             <constraint firstItem="CNZ-4u-CIe" firstAttribute="top" secondItem="GdU-2j-DG9" secondAttribute="bottom" constant="60" id="dzB-p7-KMA"/>
@@ -263,8 +269,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTxt" destination="8Dd-2X-RZh" id="WOp-Sa-HjY"/>
                         <outlet property="passwordTxt" destination="YNt-5a-KOU" id="kbf-hm-d2U"/>
+                        <outlet property="spinner" destination="KK6-MN-gJF" id="WHP-y0-sVE"/>
+                        <outlet property="usernameTxt" destination="8Dd-2X-RZh" id="CCx-Ld-Xvo"/>
                         <segue destination="5Lg-b1-RyG" kind="show" identifier="toCreateAccount" id="wEE-Gc-IRO"/>
                     </connections>
                 </viewController>
