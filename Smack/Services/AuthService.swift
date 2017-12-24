@@ -110,7 +110,6 @@ class AuthService {
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
                 guard let data = response.data else { return }
-                print("data ", data)
                 self.setUserInfo(data: data)
                 completion(true)
                 
@@ -128,10 +127,6 @@ class AuthService {
         let avatarName = json["avatarName"].stringValue
         let name = json["name"].stringValue
         let email = json["email"].stringValue
-        
-        print("Setting user info")
-        print(json)
-        
         UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name )
     }
 }
