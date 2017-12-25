@@ -71,7 +71,7 @@ class AuthService {
 //                    }
 //                }
                 guard let data = response.data else { return }
-                let json = JSON(data: data)
+                let json = JSON(data)
                 self.userEmail = json["user"].stringValue
                 self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
@@ -121,7 +121,7 @@ class AuthService {
     }
     
     func setUserInfo(data: Data) {
-        let json = JSON(data: data)
+        let json = JSON(data)
         let id = json["_id"].stringValue
         let color = json["avatarColor"].stringValue
         let avatarName = json["avatarName"].stringValue

@@ -24,9 +24,9 @@ class ChatVC: UIViewController {
         }
         MessageService.instance.findAllChannel { (success) in
             if success {
-                print("success")
+                print("Message Success Fetch")
             } else {
-                print("failurer")
+                print("Message Failure Fetch")
             }
         }
 
