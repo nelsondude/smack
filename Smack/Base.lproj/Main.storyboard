@@ -602,6 +602,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="channelNameLbl" destination="P5C-2e-1cB" id="qfy-15-9H4"/>
                         <outlet property="menuBtn" destination="rvz-cd-WEg" id="RYU-jL-qPF"/>
                     </connections>
                 </viewController>

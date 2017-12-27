@@ -32,6 +32,7 @@
 		5BF337841FEF242100EF2AE7 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF337821FEF242100EF2AE7 /* ProfileVC.xib */; };
 		5BF337861FF0574C00EF2AE7 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF337851FF0574C00EF2AE7 /* MessageService.swift */; };
 		5BF337881FF057A300EF2AE7 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF337871FF057A300EF2AE7 /* Channel.swift */; };
+		5BF861A11FF323E400482BCF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF861A01FF323E400482BCF /* Message.swift */; };
 		8D8DFBFB1D0FC7AF485812AB /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FBE310468D2F4289CF60B85 /* Pods_Smack.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		5BF337821FEF242100EF2AE7 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		5BF337851FF0574C00EF2AE7 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		5BF337871FF057A300EF2AE7 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		5BF861A01FF323E400482BCF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B437EBE7B54F9F87752C19DF /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF337871FF057A300EF2AE7 /* Channel.swift */,
+				5BF861A01FF323E400482BCF /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				5B19DA961FB28096005831B6 /* ChannelVC.swift in Sources */,
 				5B6431961FE9CAE900BAFC89 /* AvatarPickerVC.swift in Sources */,
 				5B84B9F81FBB396000F44A2E /* RoundedButton.swift in Sources */,
+				5BF861A11FF323E400482BCF /* Message.swift in Sources */,
 				5BF337881FF057A300EF2AE7 /* Channel.swift in Sources */,
 				5B64319A1FEA45DD00BAFC89 /* CircleImage.swift in Sources */,
 				5BF337861FF0574C00EF2AE7 /* MessageService.swift in Sources */,
