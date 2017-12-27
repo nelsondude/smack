@@ -24,10 +24,14 @@ class AuthService {
     
     var authToken: String {
         get {
-            return defaults.value(forKey: TOKEN_KEY) as! String
+            if let token = defaults.value(forKey: TOKEN_KEY) {
+                return token as! String
+            }
+            return ""
         } set {
             defaults.set(newValue, forKey: TOKEN_KEY)
         }
+        
     }
     
     var userEmail: String {

@@ -26,7 +26,6 @@ class MessageService {
                     debugPrint(error as Any)
                     completion(false)
                 }
-                print(self.channels)
 //                if let json = JSON(data: data).array {
 //                    for item in json {
 //                        let name = item["name"].stringValue

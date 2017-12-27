@@ -22,8 +22,13 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        
+        // Changes the login picture and name
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
 
+        // Changing of the channels
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsDidChange(_:)), name: NOTIF_CHANNELS_CHANGED, object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -54,6 +59,10 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupUserInfo()
     }
     
+    @objc func channelsDidChange(_ notif: Notification) {
+        tableView.reloadData()
+    }
+    
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
@@ -63,14 +72,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginBtn.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
-            
         }
     }
     
     
 //    Required functions for UI Table View delegates
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Setting the table view cell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell {
             let channel = MessageService.instance.channels[indexPath.row]
             cell.configureCell(channel: channel)
@@ -84,10 +91,15 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Setting the table view count")
         return MessageService.instance.channels.count
     }
     
+    @IBAction func addChannelPressed(_ sender: Any) {
+        let addChannel = AddChannelVC()
+        addChannel.modalPresentationStyle = .custom
+        present(addChannel, animated: true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 

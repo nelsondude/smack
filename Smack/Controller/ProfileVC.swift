@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileVC: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     override func viewDidLoad() {
@@ -40,7 +39,7 @@ class ProfileVC: UIViewController {
         userName.text = UserDataService.instance.name
         profileImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
         let closeTouch = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.closetap(_:)))
-        bgView.addGestureRecognizer(closeTouch)
+        self.view.addGestureRecognizer(closeTouch)
         
     }
     @objc func closetap(_ recognizer: UITapGestureRecognizer) {
